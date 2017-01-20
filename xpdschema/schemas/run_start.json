@@ -1,6 +1,10 @@
 {
   "type": "object",
   "properties":{
+    "facility": {
+      "type": "string",
+      "description": "Facility Name (NSLS-II, APS, etc)"
+    },
     "bt_piLast":{
       "type": "string",
       "description": "Last name of PI"
@@ -8,6 +12,10 @@
     "bt_wavelength":{
       "type": "number",
       "description": "x-ray wavelength"
+    },
+    "energy_calibration_collection_client_uid":{
+      "type": "string",
+      "description": "Key linking to energy calibration"
     },
     "bt_safN":{
       "type": "string",
@@ -137,9 +145,13 @@
       "type": "object",
       "description": "dictionary of calibration parameters linked by xpdAcq"
     },
-    "calibration_collection_uid":{
+    "detector_calibration_collection_client_uid":{
       "type": "string",
-      "description": "uid of calibration collection being associated by xpdAcq"
+      "description": "uid of calibration collection"
+    },
+    "detector_calibration_collection_server_uid":{
+      "type": "string",
+      "description": "uid of calibration collection"
     },
     "mask":{
       "type": "array",
@@ -149,5 +161,9 @@
       "type": "string",
       "description": "metadata version being used by xpdAcq"
     }
-  }
+  },
+  "required": [
+    "md_schema_version",
+
+  ]
 }
