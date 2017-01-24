@@ -11,7 +11,7 @@
     },
     "bt_wavelength":{
       "type": "number",
-      "description": "x-ray wavelength"
+      "description": "x-ray wavelength in Angstrom"
     },
     "bt_safN":{
       "type": "string",
