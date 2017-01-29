@@ -5,6 +5,10 @@
       "type": "string",
       "description": "Facility Name (NSLS-II, APS, etc)"
     },
+    "beamline":{
+      "type": "string",
+      "description": "Name of beamline (XPD, 11-ID-B"
+    },
     "bt_piLast":{
       "type": "string",
       "description": "Last name of PI"
