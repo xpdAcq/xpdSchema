@@ -72,7 +72,7 @@
     },
     "tags":{
       "type": "array",
-      "description": "list of short tags user sets up for future search"
+      "description": "list of short string tags user sets up for future search"
     },
     "sp_plan_name":{
       "type": "string",
