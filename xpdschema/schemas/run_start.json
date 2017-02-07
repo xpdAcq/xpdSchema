@@ -172,12 +172,16 @@
     "md_schema_version":{
       "type": "string",
       "description": "metadata version being used by xpdAcq"
-    }
+    },
+    "is_setup":{
+      "type": "bool",
+      "description": "If the scan was a setup scan"}
   },
   "required": [
     "md_schema_version",
     "facility",
     "bt_piLast",
-    "bt_safN"
+    "bt_safN",
+    "is_setup"
   ]
 }
