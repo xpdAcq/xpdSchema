@@ -3,7 +3,8 @@
   "properties":{
     "facility": {
       "type": "string",
-      "description": "Facility Name (NSLS-II, APS, etc)"
+      "description": "Facility Name (NSLS-II, APS, etc)",
+      "enum": ["NSLS-II", "APS", "LCLS", "ALS", "CHESS"]
     },
     "beamline":{
       "type": "string",
