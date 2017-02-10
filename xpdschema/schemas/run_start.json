@@ -154,29 +154,37 @@
       "type": "string",
       "description": "uid for the detector calibration server. Clients can link to this. See discussion in the Readme notes section"
     },
-    "background_client_uid":{
-      "type": "string",
-      "description": "Key linking to background server. See discussion in the Readme notes section"
-    },
     "background_server_uid":{
       "type": "string",
       "description": "uid for the background server. Clients can link to this. See discussion in the Readme notes section"
     },
-    "dark_client_uid":{
+    "background_client_uid":{
       "type": "string",
-      "description": "Key linking to dark image server. See discussion in the Readme notes section"
+      "description": "Key linking to background server. See discussion in the Readme notes section"
     },
     "dark_server_uid":{
       "type": "string",
       "description": "uid for the dark image server. Clients can link to this. See discussion in the Readme notes section"
     },
-    "md_schema_version":{
+    "dark_client_uid":{
       "type": "string",
-      "description": "metadata version being used by xpdAcq"
+      "description": "Key linking to dark image server. See discussion in the Readme notes section"
+    },
+    "mask_server_uid":{
+      "type": "string",
+      "description": "uid for the mask image server. Clients can link to this. See discussion in the Readme notes section"
+    },
+    "mask_client_uid":{
+      "type": "string",
+      "description": "Key linking to mask image server. See discussion in the Readme notes section"
     },
     "is_setup":{
       "type": "bool",
-      "description": "If the scan was a setup scan"}
+      "description": "If the scan was a setup scan"},
+    "md_schema_version":{
+      "type": "string",
+      "description": "metadata version being used by xpdAcq"
+    }
   },
   "required": [
     "md_schema_version",
