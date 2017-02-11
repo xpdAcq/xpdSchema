@@ -1,0 +1,196 @@
+{
+  "type": "object",
+  "properties":{
+    "facility": {
+      "type": "string",
+      "description": "Facility Name (NSLS-II, APS, etc)",
+      "enum": ["NSLS-II", "APS", "LCLS", "ALS", "CHESS"]
+    },
+    "beamline":{
+      "type": "string",
+      "description": "Name of beamline (XPD, 11-ID-B, etc)"
+    },
+    "bt_piLast":{
+      "type": "string",
+      "description": "Last name of PI"
+    },
+    "bt_wavelength":{
+      "type": "number",
+      "description": "x-ray wavelength in Angstrom, Deprecation Warning: this will deprecated in upcoming releases and will be moved the analysis stream"
+    },
+    "bt_safN":{
+      "type": "string",
+      "description": "Safety Approval Number (at NSLS-II), or equivalent ID at other facilities, that links the current beamtime to the relevant metadata in the facility user database"
+    },
+    "bt_experimenters":{
+      "type": "array",
+      "description": "list of experimenter names in [first, last,...] format. This field may be useful for searching by experimenter."
+    },
+    "bt_uid":{
+      "type": "string",
+      "description": "auto-generated uid for the current Beamtime. All scans collected during this beamtime will be tagged with this uid."
+    },
+    "sample_name":{
+      "type": "string",
+      "description": "Name of sample being measured. Any memorable name is acceptable but every different sample run during a beamtime must have a different name"
+    },
+    "sample_composition":{
+      "type": "object",
+      "description": "dictionary of sample stoichiometry"
+    },
+    "sample_phase":{
+      "type": "object",
+      "description": "dictionary of sample phase information"
+    },
+    "sample_maker":{
+      "type": "array",
+      "description": "list of sample maker names in [first, last,...] format. This field may be useful for searching by experimenter."
+    },
+    "sa_uid":{
+      "type": "string",
+      "description": "auto-generated uid for Sample object all scans run on this sample will contain this uid"
+    },
+    "cif_name":{
+      "type": "array",
+      "description": "List of filenames of cif-files that contain information about structures of phases in the sample. This info may be used to automate the analysis workflow"
+    },
+    "collaborators":{
+      "type": "array",
+      "description": "list of collaborator names  in [first, last,...] format. These may be people involved in the research but who didn't participate in the experiment, but you still want to link them in the metadata. These are like tags that yield more powerful searches if used correctly."
+    },
+    "database_id":{
+      "type": "object",
+      "description": "dictionary of structure uid to different database"
+    },
+    "lead_experimenter":{
+      "type": "array",
+      "description": "list of lead experimenter names in [first, last,...] format. Out of all those experimenters at the beamtime, who's experiment is it?"
+    },
+    "notes":{
+      "type": "string",
+      "description": "memorable note for sample"
+    },
+    "tags":{
+      "type": "array",
+      "description": "list of short string tags user sets up for future search"
+    },
+    "sp_plan_name":{
+      "type": "string",
+      "description": "name of ScanPlan"
+    },
+    "sp_args":{
+      "type": "array",
+      "description": "positional arguments passed to ScanPlan"
+    },
+    "sp_kwargs":{
+      "type": "object",
+      "description": "keyword arguments passed to ScanPlan"
+    },
+    "sp_uid":{
+      "type": "string",
+      "description": "auto-generated uid for ScanPlan object all scans that use this scanplan will contain this uid"
+    },
+    "sp_time_per_frame":{
+      "type": "number",
+      "description": "acquisition time per frame in second"
+    },
+    "sp_num_frames":{
+      "type": "number",
+      "description": "number of frames being summed per trigger"
+    },
+    "sp_requested_exposure":{
+      "type": "number",
+      "description": "user requested exposure time in second. This will be similar to 'sp_time_per_frame'*'sp_num_frames' but could be different due to rounding"
+    },
+    "sp_computed_exposure":{
+      "type": "number",
+      "description": "program computed exposure time"
+    },
+    "sp_type":{
+      "type": "string",
+      "description": "Type of xpdAcq ScanPlan"
+    },
+    "sp_startingT":{
+      "type": "number",
+      "description": "starting temperature of xpdAcq Tramp ScanPlan"
+    },
+    "sp_endingT":{
+      "type": "number",
+      "description": "ending temperature of xpdAcq Tramp ScanPlan"
+    },
+    "sp_requested_Tstep":{
+      "type": "number",
+      "description": "user requested temperature step of xpdAcq Tramp ScanPlan"
+    },
+    "sp_computed_Tstep":{
+      "type": "number",
+      "description": "program computed temperature step of xpdAcq Tramp ScanPlan"
+    },
+    "sp_Nsteps":{
+      "type": "number",
+      "description": "program computed number of steps of xpdAcq Tramp ScanPlan"
+    },
+    "calibration_md":{
+      "type": "object",
+      "description": "dictionary of calibration parameters Automatically loaded by xpdAcq if run_calibration has been run. Deprecation Warning: this will deprecated in upcoming releases and will be moved the analysis stream"
+    },
+    "mask":{
+      "type": "array",
+      "description": "sparse representation of the mask generated by auto-mask function, Deprecation Warning: this will deprecated in upcoming releases and will be moved the analysis stream"
+    },
+    "energy_calibration_server_uid":{
+      "type": "string",
+      "description": "uid for the energy calibration server. Clients can link to this. See discussion in the Readme notes section"
+    },
+    "energy_calibration_client_uid":{
+      "type": "string",
+      "description": "Key linking to energy calibration server. See discussion in the Readme notes section"
+    },
+    "detector_calibration_server_uid":{
+      "type": "string",
+      "description": "Key linking to detector calibration server. See discussion in the Readme notes section"
+    },
+    "detector_calibration_client_uid":{
+      "type": "string",
+      "description": "uid for the detector calibration server. Clients can link to this. See discussion in the Readme notes section"
+    },
+    "background_server_uid":{
+      "type": "string",
+      "description": "uid for the background server. Clients can link to this. See discussion in the Readme notes section"
+    },
+    "background_client_uid":{
+      "type": "string",
+      "description": "Key linking to background server. See discussion in the Readme notes section"
+    },
+    "dark_server_uid":{
+      "type": "string",
+      "description": "uid for the dark image server. Clients can link to this. See discussion in the Readme notes section"
+    },
+    "dark_client_uid":{
+      "type": "string",
+      "description": "Key linking to dark image server. See discussion in the Readme notes section"
+    },
+    "mask_server_uid":{
+      "type": "string",
+      "description": "uid for the mask image server. Clients can link to this. See discussion in the Readme notes section"
+    },
+    "mask_client_uid":{
+      "type": "string",
+      "description": "Key linking to mask image server. See discussion in the Readme notes section"
+    },
+    "is_setup":{
+      "type": "bool",
+      "description": "If the scan was a setup scan"},
+    "md_schema_version":{
+      "type": "string",
+      "description": "metadata version being used by xpdAcq"
+    }
+  },
+  "required": [
+    "md_schema_version",
+    "facility",
+    "bt_piLast",
+    "bt_safN",
+    "is_setup"
+  ]
+}

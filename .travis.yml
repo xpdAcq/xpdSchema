@@ -1,0 +1,40 @@
+language: python
+sudo: false
+env:
+  global:
+    BUILD_DOCS_BRANCH: master
+    DOCS_SUBDIR: doc/
+    TARGET_DEV_SUBDIR: bluesky/
+    HTML_SUBDIR: build/html
+    DOCS_CONDA_DEPS: "bluesky"
+    DOCS_PIP_DEPS: "tqdm"
+
+before_install:
+  - if [ ${TRAVIS_PYTHON_VERSION:0:1} == "2" ]; then wget http://repo.continuum.io/miniconda/Miniconda-3.5.5-Linux-x86_64.sh -O miniconda.sh; else wget http://repo.continuum.io/miniconda/Miniconda3-3.5.5-Linux-x86_64.sh -O miniconda.sh; fi
+  - chmod +x miniconda.sh
+  - ./miniconda.sh -b -p /home/travis/mc
+  - export PATH=/home/travis/mc/bin:$PATH
+  - conda config --set show_channel_urls True
+  - conda config --set always_yes True
+
+
+install:
+  - export GIT_FULL_HASH=`git rev-parse HEAD`
+  - conda create -n testenv python=$TRAVIS_PYTHON_VERSION flake8 jsonschema flake8 -c lightsource2 -c conda-forge -c soft-matter
+  - source activate testenv
+  - 'pip install python-coveralls'
+  - pip install codecov
+  - python setup.py install
+  # Need to clean the python build directory (and other cruft) or pytest is
+  # going to find the build directory and get confused why there are two sets
+  # of every test file
+  - git clean -xfd
+
+script:
+  - coverage run run_tests.py
+  - coverage report -m
+
+after_script:
+  - flake8 .
+  - codecov
+  - coveralls
