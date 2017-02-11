@@ -8,7 +8,7 @@
     },
     "beamline":{
       "type": "string",
-      "description": "Name of beamline (XPD, 11-ID-B"
+      "description": "Name of beamline (XPD, 11-ID-B, etc)"
     },
     "bt_piLast":{
       "type": "string",
