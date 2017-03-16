@@ -1,7 +1,7 @@
 # xpdSchema
 Schema for XPD metadatastore documents
 
-##Notes
+## Notes
 An important thing to note is the "server/client" key convention.
 Servers contain the data that the key describes. 
 For example, calibration data is stored in a server which has the key `detector_calibration_server_uid` containing a uid value. 
