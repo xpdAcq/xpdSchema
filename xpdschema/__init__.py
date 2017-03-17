@@ -10,7 +10,7 @@ class DocumentNames(Enum):
     start = 'start'
 
 
-SCHEMA_PATH = 'schemas'
+SCHEMA_PATH = 'xpdschema'
 SCHEMA_NAMES = {DocumentNames.start: 'schemas/run_start.json'}
 schemas = {}
 for name, filename in SCHEMA_NAMES.items():
