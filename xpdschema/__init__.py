@@ -14,5 +14,5 @@ SCHEMA_PATH = 'schemas'
 SCHEMA_NAMES = {DocumentNames.start: 'schemas/run_start.json'}
 schemas = {}
 for name, filename in SCHEMA_NAMES.items():
-    with open(rs_fn('schemas', filename)) as fin:
+    with open(rs_fn(SCHEMA_PATH, filename)) as fin:
         schemas[name] = json.load(fin)
