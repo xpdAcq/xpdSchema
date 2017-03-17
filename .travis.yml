@@ -34,7 +34,7 @@ install:
   - git clean -xfd
 
 script:
-  - run_tests.py
+  - python run_tests.py
 
 after_script:
   - flake8 .
