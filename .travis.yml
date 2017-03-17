@@ -9,6 +9,11 @@ env:
     DOCS_CONDA_DEPS: "bluesky"
     DOCS_PIP_DEPS: "tqdm"
 
+matrix:
+  include:
+    - python: 3.5
+      env: BUILD_DOCS=true
+
 before_install:
   - if [ ${TRAVIS_PYTHON_VERSION:0:1} == "2" ]; then wget http://repo.continuum.io/miniconda/Miniconda-3.5.5-Linux-x86_64.sh -O miniconda.sh; else wget http://repo.continuum.io/miniconda/Miniconda3-3.5.5-Linux-x86_64.sh -O miniconda.sh; fi
   - chmod +x miniconda.sh
@@ -22,8 +27,6 @@ install:
   - export GIT_FULL_HASH=`git rev-parse HEAD`
   - conda create -n testenv python=$TRAVIS_PYTHON_VERSION flake8 jsonschema flake8 -c lightsource2 -c conda-forge -c soft-matter
   - source activate testenv
-  - 'pip install python-coveralls'
-  - pip install codecov
   - python setup.py install
   # Need to clean the python build directory (and other cruft) or pytest is
   # going to find the build directory and get confused why there are two sets
@@ -31,10 +34,7 @@ install:
   - git clean -xfd
 
 script:
-  - coverage run run_tests.py
-  - coverage report -m
+  - python run_tests.py
 
 after_script:
   - flake8 .
-  - codecov
-  - coveralls
