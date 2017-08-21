@@ -162,14 +162,6 @@
       "type": "string",
       "description": "Key linking to background server. See discussion in the Readme notes section"
     },
-    "dark_server_uid":{
-      "type": "string",
-      "description": "uid for the dark image server. Clients can link to this. See discussion in the Readme notes section"
-    },
-    "dark_client_uid":{
-      "type": "string",
-      "description": "Key linking to dark image server. See discussion in the Readme notes section"
-    },
     "mask_server_uid":{
       "type": "string",
       "description": "uid for the mask image server. Clients can link to this. See discussion in the Readme notes section"
@@ -181,16 +173,18 @@
     "is_setup":{
       "type": "bool",
       "description": "If the scan was a setup scan"},
-    "md_schema_version":{
+    "xpdacq_md_version":{
       "type": "string",
       "description": "metadata version being used by xpdAcq"
+    },
+    "analysis_stage":{
+      "type": "string",
+      "description": "tag for which stage of documents being processed"
     }
   },
   "required": [
-    "md_schema_version",
-    "facility",
+    "xpdacq_md_version",
     "bt_piLast",
-    "bt_safN",
-    "is_setup"
+    "bt_safN"
   ]
 }
